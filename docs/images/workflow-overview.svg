@@ -1,0 +1,177 @@
+<svg width="1183" height="768" viewBox="0 0 1183 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserBar" x1="0" y1="0" x2="1183" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F8FC"/>
+      <stop offset="1" stop-color="#EAF0FB"/>
+    </linearGradient>
+    <linearGradient id="toolbarBar" x1="0" y1="0" x2="1183" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#EEF3FA"/>
+    </linearGradient>
+    <filter id="cardShadow" x="70" y="184" width="458" height="396" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#9FB2D0" flood-opacity="0.24"/>
+    </filter>
+    <filter id="cardShadow2" x="570" y="208" width="458" height="376" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#9FB2D0" flood-opacity="0.24"/>
+    </filter>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" stroke="#E9EEF7" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1183" height="768" fill="#F2F5FB"/>
+  <rect x="0" y="0" width="1183" height="33" fill="#F5F6F8"/>
+  <circle cx="20" cy="16.5" r="4.5" fill="#111827"/>
+  <text x="46" y="21" fill="#111827" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="13" font-weight="600">Chrome</text>
+  <text x="96" y="21" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="12">文件</text>
+  <text x="132" y="21" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="12">编辑</text>
+  <text x="168" y="21" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="12">显示</text>
+  <text x="1110" y="21" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="12">4月3日 周五</text>
+  <text x="1166" y="21" fill="#111827" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="12" text-anchor="end">19:56</text>
+
+  <rect x="0" y="33" width="1183" height="31" fill="url(#browserBar)"/>
+  <circle cx="21" cy="48.5" r="5" fill="#FF5F57"/>
+  <circle cx="37" cy="48.5" r="5" fill="#FEBC2E"/>
+  <circle cx="53" cy="48.5" r="5" fill="#28C840"/>
+  <rect x="92" y="37" width="76" height="25" rx="8" fill="#E8EEF9" stroke="#CFD8E7"/>
+  <text x="130" y="53" fill="#4B5563" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" text-anchor="middle">Canvas W</text>
+  <rect x="176" y="37" width="86" height="25" rx="8" fill="#E8EEF9" stroke="#CFD8E7"/>
+  <text x="219" y="53" fill="#4B5563" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" text-anchor="middle">coze - 提交</text>
+  <rect x="270" y="37" width="88" height="25" rx="8" fill="#E8EEF9" stroke="#CFD8E7"/>
+  <text x="314" y="53" fill="#4B5563" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" text-anchor="middle">Coze</text>
+  <rect x="965" y="37" width="150" height="25" rx="8" fill="#E8EEF9" stroke="#CFD8E7"/>
+  <text x="1040" y="53" fill="#4B5563" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" text-anchor="middle">Canvas Workflow</text>
+
+  <rect x="0" y="64" width="1183" height="40" fill="url(#toolbarBar)"/>
+  <circle cx="16" cy="80" r="9" fill="#F9FAFB"/>
+  <path d="M19 80H13" stroke="#6B7280" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M15 77L12 80L15 83" stroke="#6B7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46" cy="80" r="9" fill="#F9FAFB"/>
+  <path d="M43 80H49" stroke="#6B7280" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M47 77L50 80L47 83" stroke="#6B7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="94" y="70" width="816" height="20" rx="10" fill="#FFFFFF" stroke="#D8DFEA"/>
+  <circle cx="106" cy="80" r="4.5" stroke="#4B5563" stroke-width="1.2"/>
+  <text x="120" y="84" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11">localhost:3000</text>
+  <circle cx="899" cy="80" r="4.5" fill="#F3F4F6" stroke="#9CA3AF"/>
+  <path d="M899 76.5V83.5" stroke="#9CA3AF" stroke-width="1"/>
+  <path d="M895.5 80H902.5" stroke="#9CA3AF" stroke-width="1"/>
+  <rect x="1060" y="68" width="120" height="24" rx="12" fill="#DCE8FD"/>
+  <text x="1120" y="84" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" text-anchor="middle">有新版 Chrome 可用</text>
+
+  <rect x="0" y="104" width="1183" height="664" fill="#F8FBFF"/>
+  <rect x="0" y="104" width="1183" height="664" fill="url(#grid)"/>
+
+  <text x="18" y="128" fill="#475569" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="12" font-weight="600">Canvas Workflow Demo</text>
+  <text x="18" y="145" fill="#7B8798" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11">Click here to fit view. Prompt Builder.Run toggles the Tone output. Response Reviewer.Run toggles that node between running and idle so you can verify the running animation.</text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="102" y="214" width="412" height="354" rx="18" fill="#FFFFFF"/>
+    <rect x="102.5" y="214.5" width="411" height="353" rx="17.5" stroke="#CFE0FF"/>
+    <rect x="103" y="215" width="410" height="52" rx="18" fill="#FFFFFF"/>
+    <rect x="103.5" y="215.5" width="409" height="51" rx="17.5" stroke="#E5EAF3"/>
+    <circle cx="130" cy="240" r="13" fill="#315EEA"/>
+    <text x="130" y="244.5" fill="#FFFFFF" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" font-weight="700" text-anchor="middle">PB</text>
+    <text x="150" y="245" fill="#1F2937" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="14" font-weight="600">Prompt Builder</text>
+    <rect x="439" y="227" width="58" height="28" rx="10" fill="#FFFFFF" stroke="#D9E1EC"/>
+    <text x="468" y="245" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle">Run</text>
+
+    <rect x="118" y="280" width="380" height="206" rx="14" fill="#F8FAFD"/>
+    <rect x="118.5" y="280.5" width="379" height="205" rx="13.5" stroke="#E8EDF5"/>
+    <text x="128" y="297" fill="#7B8798" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Config</text>
+    <path d="M128 314H488" stroke="#EEF2F7"/>
+    <text x="140" y="329.5" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Input Schema</text>
+    <text x="476" y="329.5" fill="#7C879A" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="end">query + context</text>
+    <path d="M128 342H488" stroke="#EEF2F7"/>
+    <text x="140" y="358" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Output Schema</text>
+    <text x="476" y="358" fill="#315EEA" font-family="SF Mono, Menlo, monospace" font-size="10" font-weight="600" text-anchor="end">prompt + meta + tone</text>
+    <path d="M128 371H488" stroke="#EEF2F7"/>
+    <text x="140" y="387" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Model</text>
+    <text x="476" y="387" fill="#374151" font-family="SF Mono, Menlo, monospace" font-size="10" font-weight="700" text-anchor="end">gpt-5.4-mini</text>
+    <path d="M128 400H488" stroke="#EEF2F7"/>
+    <text x="140" y="417" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Temperature</text>
+    <text x="476" y="417" fill="#7C879A" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="end">0.20</text>
+    <path d="M128 430H488" stroke="#EEF2F7"/>
+    <text x="140" y="447" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Max Tokens</text>
+    <text x="476" y="447" fill="#7C879A" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="end">2048</text>
+
+    <circle cx="123" cy="550" r="3.2" fill="#315EEA"/>
+    <text x="132" y="554" fill="#315EEA" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Running</text>
+    <text x="499" y="554" fill="#7B8798" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600" text-anchor="end">Awaiting upstream context</text>
+    <rect x="104" y="563" width="251" height="3" rx="1.5" fill="#315EEA"/>
+  </g>
+
+  <g filter="url(#cardShadow2)">
+    <rect x="602" y="239" width="412" height="317" rx="18" fill="#FFFFFF"/>
+    <rect x="602.5" y="239.5" width="411" height="316" rx="17.5" stroke="#CDE4DF"/>
+    <rect x="603" y="240" width="410" height="52" rx="18" fill="#FFFFFF"/>
+    <rect x="603.5" y="240.5" width="409" height="51" rx="17.5" stroke="#E5EAF3"/>
+    <circle cx="630" cy="264" r="13" fill="#2E8A7D"/>
+    <text x="630" y="268.5" fill="#FFFFFF" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11" font-weight="700" text-anchor="middle">RV</text>
+    <text x="652" y="269" fill="#1F2937" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="14" font-weight="600">Response Reviewer</text>
+    <rect x="941" y="251" width="58" height="28" rx="10" fill="#FFFFFF" stroke="#D9E1EC"/>
+    <text x="970" y="269" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle">Run</text>
+
+    <rect x="618" y="301" width="380" height="208" rx="14" fill="#F8FAFD"/>
+    <rect x="618.5" y="301.5" width="379" height="207" rx="13.5" stroke="#E8EDF5"/>
+    <text x="628" y="318" fill="#7B8798" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Config</text>
+    <path d="M628 335H988" stroke="#EEF2F7"/>
+    <text x="640" y="350.5" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Input Schema</text>
+    <text x="976" y="350.5" fill="#7C879A" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="end">draft + meta + tone</text>
+    <path d="M628 363H988" stroke="#EEF2F7"/>
+    <text x="640" y="379" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Output Schema</text>
+    <text x="976" y="379" fill="#315EEA" font-family="SF Mono, Menlo, monospace" font-size="10" font-weight="600" text-anchor="end">notes + score</text>
+    <path d="M628 392H988" stroke="#EEF2F7"/>
+    <text x="640" y="408" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Model</text>
+    <text x="976" y="408" fill="#374151" font-family="SF Mono, Menlo, monospace" font-size="10" font-weight="700" text-anchor="end">gpt-5.4</text>
+    <path d="M628 421H988" stroke="#EEF2F7"/>
+    <text x="640" y="437" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Threshold</text>
+    <text x="976" y="437" fill="#7C879A" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="end">strict</text>
+    <path d="M628 450H988" stroke="#EEF2F7"/>
+    <text x="640" y="467" fill="#5A677A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Retries</text>
+    <text x="976" y="467" fill="#7C879A" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="end">1</text>
+
+    <circle cx="623" cy="539" r="3.2" fill="#315EEA"/>
+    <text x="632" y="543" fill="#315EEA" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600">Running</text>
+    <text x="990" y="543" fill="#7B8798" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="600" text-anchor="end">Missing required field: tone</text>
+    <rect x="604" y="551" width="251" height="3" rx="1.5" fill="#2E8A7D"/>
+  </g>
+
+  <path d="M517 353C539 353 553 353 576 376" stroke="#7C3AED" stroke-width="2.3"/>
+  <path d="M517 386C539 386 553 386 576 386" stroke="#0891B2" stroke-width="2.3"/>
+  <path d="M517 421C539 421 553 421 576 442" stroke="#2563EB" stroke-width="2.3"/>
+
+  <circle cx="517" cy="353" r="5.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+  <circle cx="517" cy="386" r="5.8" fill="#FFFFFF" stroke="#0891B2" stroke-width="2.2"/>
+  <circle cx="517" cy="421" r="5.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="599" cy="377" r="5.8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.2"/>
+  <circle cx="599" cy="386" r="5.8" fill="#FFFFFF" stroke="#0891B2" stroke-width="2.2"/>
+  <circle cx="599" cy="444" r="5.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+
+  <circle cx="98" cy="370" r="5.8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="98" cy="402" r="5.8" fill="#FFFFFF" stroke="#0891B2" stroke-width="2.2"/>
+  <text x="86" y="365" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">Query</text>
+  <text x="86" y="379" fill="#315EEA" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600" text-anchor="end">string</text>
+  <text x="86" y="397" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">Context</text>
+  <text x="86" y="411" fill="#0891B2" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600" text-anchor="end">json</text>
+
+  <text x="529" y="350" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700">Prompt</text>
+  <text x="529" y="363" fill="#7C3AED" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600">markdown</text>
+  <text x="529" y="381" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700">Meta</text>
+  <text x="529" y="394" fill="#0891B2" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600">json</text>
+  <text x="529" y="414" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700">Tone</text>
+  <text x="529" y="427" fill="#2563EB" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600">string</text>
+
+  <text x="587" y="371" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">Draft</text>
+  <text x="587" y="384" fill="#7C3AED" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600" text-anchor="end">markdown</text>
+  <text x="587" y="403" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">Meta</text>
+  <text x="587" y="416" fill="#0891B2" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600" text-anchor="end">json</text>
+  <text x="587" y="438" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">Tone</text>
+  <text x="587" y="451" fill="#2563EB" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600" text-anchor="end">string</text>
+
+  <circle cx="1017" cy="392" r="5.8" fill="#FFFFFF" stroke="#D97706" stroke-width="2.2"/>
+  <circle cx="1017" cy="423" r="5.8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.2"/>
+  <text x="1028" y="389" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700">Notes</text>
+  <text x="1028" y="402" fill="#D97706" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600">list</text>
+  <text x="1028" y="420" fill="#374151" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10.5" font-weight="700">Score</text>
+  <text x="1028" y="433" fill="#DC2626" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="10" font-weight="600">number</text>
+</svg>

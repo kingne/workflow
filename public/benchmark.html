@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Workflow Benchmark</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="benchmark-page">
+    <canvas id="app"></canvas>
+    <aside class="benchmark-panel">
+      <div class="benchmark-panel__header">
+        <h1>Workflow Benchmark</h1>
+        <p>压测多节点、多连线和运行态动画的 canvas 渲染性能。</p>
+      </div>
+
+      <label class="benchmark-field">
+        <span>节点数</span>
+        <input id="node-count" type="number" min="10" max="5000" step="10" value="300" />
+      </label>
+
+      <label class="benchmark-field">
+        <span>列数</span>
+        <input id="columns" type="number" min="1" max="50" step="1" value="6" />
+      </label>
+
+      <label class="benchmark-field">
+        <span>运行态比例</span>
+        <input id="running-ratio" type="number" min="0" max="1" step="0.05" value="0.2" />
+      </label>
+
+      <label class="benchmark-field">
+        <span>采样时长(ms)</span>
+        <input id="duration-ms" type="number" min="1000" max="15000" step="500" value="4000" />
+      </label>
+
+      <label class="benchmark-toggle">
+        <input id="auto-pan" type="checkbox" checked />
+        <span>自动平移视口</span>
+      </label>
+
+      <button id="run-benchmark" type="button" class="benchmark-button">运行 Benchmark</button>
+
+      <div class="benchmark-status" id="benchmark-status">等待开始...</div>
+      <div class="benchmark-metrics" id="benchmark-metrics"></div>
+    </aside>
+
+    <script type="module" src="/assets/benchmark.js"></script>
+  </body>
+  </html>

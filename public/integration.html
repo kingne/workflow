@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Workflow Integration Example</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="integration-page">
+    <canvas id="app"></canvas>
+
+    <aside class="integration-panel">
+      <div class="integration-panel__header">
+        <p class="integration-eyebrow">WorkflowApp</p>
+        <h1>第三方接入示例</h1>
+        <p>
+          这页直接通过 <code>WorkflowApp</code> 启动 workflow，并演示
+          <code>start</code>、<code>destory</code>、<code>focusNode</code> 和
+          <code>updateNode</code>。
+        </p>
+      </div>
+
+      <div class="integration-actions">
+        <button id="start-app" type="button" class="benchmark-button">start()</button>
+        <button id="destroy-app" type="button" class="benchmark-button benchmark-button--ghost">destory()</button>
+      </div>
+
+      <div class="integration-actions">
+        <button id="focus-review" type="button" class="benchmark-button benchmark-button--secondary">focusNode("review")</button>
+        <button id="toggle-review-status" type="button" class="benchmark-button benchmark-button--secondary">
+          update review running
+        </button>
+      </div>
+
+      <div class="integration-actions">
+        <button id="update-start-node" type="button" class="benchmark-button benchmark-button--secondary">
+          update prompt title
+        </button>
+        <button id="toggle-tone-output" type="button" class="benchmark-button benchmark-button--secondary">
+          toggle prompt output
+        </button>
+      </div>
+
+      <div class="integration-actions">
+        <button id="create-insight-node" type="button" class="benchmark-button benchmark-button--secondary">
+          create insight node
+        </button>
+      </div>
+
+      <div class="integration-status" id="integration-status">Waiting...</div>
+
+      <div class="integration-snippet">
+        <div class="integration-snippet__title">最小接入代码</div>
+        <pre><code>import { WorkflowApp } from "workflow";
+
+const app = new WorkflowApp({
+  canvas,
+  nodes,
+  edges,
+});
+
+app.start();
+app.createNode(node);
+app.updateNode("review", { statusTone: "running" });</code></pre>
+      </div>
+
+      <div class="integration-snippet">
+        <div class="integration-snippet__title">事件日志</div>
+        <pre id="integration-log"><code></code></pre>
+      </div>
+    </aside>
+
+    <script type="module" src="/assets/integration-example.js"></script>
+  </body>
+</html>

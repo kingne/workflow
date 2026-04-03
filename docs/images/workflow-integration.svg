@@ -1,0 +1,84 @@
+<svg width="1600" height="960" viewBox="0 0 1600 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="90" y1="40" x2="1420" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF7"/>
+      <stop offset="1" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <filter id="shadow2" x="48" y="48" width="1504" height="864" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="36" flood-color="#0F172A" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg2)"/>
+  <g filter="url(#shadow2)">
+    <rect x="72" y="72" width="520" height="816" rx="28" fill="url(#panel)"/>
+    <text x="120" y="150" fill="#2563EB" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="18" font-weight="700">WorkflowApp</text>
+    <text x="120" y="202" fill="#0F172A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="40" font-weight="700">第三方接入示例</text>
+    <text x="120" y="252" fill="#475569" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="20">传入 canvas、nodes、edges，直接 start / destory / createNode / updateNode</text>
+
+    <rect x="120" y="304" width="160" height="56" rx="18" fill="#2563EB"/>
+    <text x="170" y="340" fill="#FFFFFF" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="22" font-weight="600">start()</text>
+    <rect x="296" y="304" width="180" height="56" rx="18" fill="#E2E8F0"/>
+    <text x="345" y="340" fill="#334155" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="22" font-weight="600">destory()</text>
+
+    <rect x="120" y="388" width="356" height="56" rx="18" fill="#ECFDF5"/>
+    <text x="160" y="424" fill="#0F766E" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="22" font-weight="600">focusNode("review")</text>
+    <rect x="120" y="464" width="356" height="56" rx="18" fill="#EFF6FF"/>
+    <text x="154" y="500" fill="#1D4ED8" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="22" font-weight="600">updateNode("review", ...)</text>
+    <rect x="120" y="540" width="356" height="56" rx="18" fill="#F5F3FF"/>
+    <text x="166" y="576" fill="#6D28D9" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="22" font-weight="600">createNode("insight")</text>
+
+    <rect x="120" y="620" width="424" height="176" rx="22" fill="#0F172A"/>
+    <text x="148" y="664" fill="#94A3B8" font-family="SF Mono, Menlo, monospace" font-size="20">import { WorkflowApp } from "workflow";</text>
+    <text x="148" y="700" fill="#E2E8F0" font-family="SF Mono, Menlo, monospace" font-size="20">const app = new WorkflowApp({</text>
+    <text x="184" y="736" fill="#E2E8F0" font-family="SF Mono, Menlo, monospace" font-size="20">canvas, nodes, edges,</text>
+    <text x="148" y="772" fill="#E2E8F0" font-family="SF Mono, Menlo, monospace" font-size="20">}); app.start();</text>
+
+    <rect x="120" y="812" width="424" height="36" rx="18" fill="#F8FAFC" stroke="#D8E3F0"/>
+    <text x="146" y="835" fill="#475569" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="18">click / hover / drag / connect 事件会通过 EventManager 往外抛</text>
+  </g>
+
+  <g filter="url(#shadow2)">
+    <rect x="646" y="72" width="882" height="816" rx="28" fill="rgba(255,255,255,0.64)"/>
+    <path d="M646 192H1528" stroke="#D7E2EE"/>
+    <path d="M646 352H1528" stroke="#D7E2EE"/>
+    <path d="M646 512H1528" stroke="#D7E2EE"/>
+    <path d="M646 672H1528" stroke="#D7E2EE"/>
+    <path d="M836 72V888" stroke="#D7E2EE"/>
+    <path d="M1036 72V888" stroke="#D7E2EE"/>
+    <path d="M1236 72V888" stroke="#D7E2EE"/>
+    <path d="M1436 72V888" stroke="#D7E2EE"/>
+
+    <rect x="760" y="250" width="332" height="248" rx="24" fill="#FFFFFF" stroke="#BFDBFE"/>
+    <rect x="760" y="250" width="332" height="76" rx="24" fill="#2563EB"/>
+    <text x="792" y="296" fill="#FFFFFF" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="26" font-weight="700">Prompt Builder</text>
+    <circle cx="754" cy="384" r="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="4"/>
+    <circle cx="754" cy="440" r="8" fill="#FFFFFF" stroke="#0891B2" stroke-width="4"/>
+    <circle cx="1098" cy="384" r="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="4"/>
+    <circle cx="1098" cy="440" r="8" fill="#FFFFFF" stroke="#0891B2" stroke-width="4"/>
+    <circle cx="1098" cy="496" r="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="4"/>
+    <text x="790" y="388" fill="#334155" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="18">Query / Context / Tone</text>
+    <text x="790" y="444" fill="#334155" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="18">Host app can create and update ports</text>
+    <rect x="780" y="466" width="286" height="18" rx="9" fill="#DBEAFE"/>
+
+    <rect x="1120" y="426" width="308" height="248" rx="24" fill="#FFFFFF" stroke="#99F6E4"/>
+    <rect x="1120" y="426" width="308" height="76" rx="24" fill="#0F766E"/>
+    <text x="1152" y="472" fill="#FFFFFF" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="26" font-weight="700">Response Reviewer</text>
+    <circle cx="1114" cy="560" r="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="4"/>
+    <circle cx="1114" cy="616" r="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="4"/>
+    <circle cx="1434" cy="560" r="8" fill="#FFFFFF" stroke="#D97706" stroke-width="4"/>
+    <circle cx="1434" cy="616" r="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="4"/>
+    <text x="1150" y="564" fill="#334155" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="18">External state can set running</text>
+    <text x="1150" y="620" fill="#334155" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="18">focusNode can jump viewport here</text>
+    <rect x="1140" y="642" width="252" height="16" rx="8" fill="#DCFCE7"/>
+
+    <path d="M1106 384C1192 384 1188 560 1114 560" stroke="#7C3AED" stroke-width="6" stroke-linecap="round"/>
+    <path d="M1106 496C1208 496 1198 616 1114 616" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 10"/>
+
+    <text x="760" y="146" fill="#0F172A" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="34" font-weight="700">Embed canvas workflow inside another app</text>
+    <text x="760" y="188" fill="#475569" font-family="SF Pro Text, PingFang SC, sans-serif" font-size="20">用一个 canvas 承接渲染，用宿主应用的数据驱动 node、edge 和生命周期</text>
+  </g>
+</svg>

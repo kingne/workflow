@@ -1,0 +1,239 @@
+:root {
+  color-scheme: light;
+  font-family: "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f4f6fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.1), transparent 40%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
+}
+
+body {
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.benchmark-page,
+.integration-page {
+  position: relative;
+}
+
+.benchmark-panel,
+.integration-panel {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: min(360px, calc(100vw - 36px));
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  z-index: 10;
+}
+
+.integration-panel {
+  width: min(440px, calc(100vw - 36px));
+}
+
+.benchmark-panel__header h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.benchmark-panel__header p {
+  margin: 8px 0 0;
+  color: rgba(71, 85, 105, 0.9);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.integration-panel__header h1 {
+  margin: 4px 0 0;
+  font-size: 26px;
+  color: #0f172a;
+}
+
+.integration-panel__header p {
+  margin: 10px 0 0;
+  color: rgba(71, 85, 105, 0.92);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.integration-eyebrow {
+  margin: 0;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.benchmark-field,
+.benchmark-toggle {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.benchmark-field input,
+.benchmark-button {
+  font: inherit;
+}
+
+.benchmark-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  border-radius: 12px;
+  background: rgba(248, 250, 252, 0.92);
+  color: #0f172a;
+}
+
+.benchmark-toggle {
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+}
+
+.benchmark-button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #0f766e);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.benchmark-button--ghost {
+  background: rgba(226, 232, 240, 0.95);
+  color: #334155;
+}
+
+.benchmark-button--secondary {
+  background: rgba(239, 246, 255, 0.94);
+  color: #1d4ed8;
+}
+
+.benchmark-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.benchmark-status {
+  margin-top: 14px;
+  color: rgba(71, 85, 105, 0.9);
+  font-size: 13px;
+}
+
+.benchmark-metrics {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(248, 250, 252, 0.86);
+}
+
+.metric-label {
+  color: rgba(71, 85, 105, 0.92);
+  font-size: 13px;
+}
+
+.metric-value {
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.integration-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.integration-actions .benchmark-button {
+  margin-top: 0;
+}
+
+.integration-status {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(240, 249, 255, 0.92);
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.integration-snippet {
+  margin-top: 16px;
+}
+
+.integration-snippet__title {
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.integration-snippet pre {
+  margin: 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.integration-snippet code {
+  font-family: "SF Mono", "Menlo", monospace;
+}
+
+@media (max-width: 768px) {
+  .benchmark-panel,
+  .integration-panel {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    width: auto;
+    max-height: min(58vh, 560px);
+    overflow: auto;
+  }
+
+  .integration-actions {
+    grid-template-columns: 1fr;
+  }
+}
