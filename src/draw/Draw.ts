@@ -1,4 +1,9 @@
-import type { Point } from "../types.ts";
+import type { Point, Rect } from "../types.ts";
+
+export type DrawRenderState = {
+  worldViewport: Rect | null;
+  screenViewport: Rect | null;
+};
 
 export type DrawMouseEvent = {
   target: Draw;
@@ -27,13 +32,13 @@ export abstract class Draw {
     this.renderSpace = renderSpace;
   }
 
-  draw(context: CanvasRenderingContext2D) {
+  draw(context: CanvasRenderingContext2D, renderState?: DrawRenderState) {
     if (!this.visible) {
       return;
     }
 
     context.save();
-    this.onDraw(context);
+    this.onDraw(context, renderState);
     context.restore();
   }
 
@@ -47,6 +52,10 @@ export abstract class Draw {
     }
 
     return this.hitTest(point) ? this : null;
+  }
+
+  getBounds(): Rect | null {
+    return null;
   }
 
   setParent(parent: Draw | null) {
@@ -81,5 +90,5 @@ export abstract class Draw {
     return Object.values(this.handlers).some((handlers) => handlers.length > 0);
   }
 
-  protected abstract onDraw(context: CanvasRenderingContext2D): void;
+  protected abstract onDraw(context: CanvasRenderingContext2D, renderState?: DrawRenderState): void;
 }

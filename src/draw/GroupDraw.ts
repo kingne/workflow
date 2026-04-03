@@ -1,5 +1,5 @@
-import { Draw } from "./Draw.ts";
-import type { Point } from "../types.ts";
+import { Draw, type DrawRenderState } from "./Draw.ts";
+import type { Point, Rect } from "../types.ts";
 
 export class GroupDraw extends Draw {
   protected children: Draw[];
@@ -25,8 +25,14 @@ export class GroupDraw extends Draw {
     this.children.push(child);
   }
 
-  protected onDraw(context: CanvasRenderingContext2D) {
-    this.children.forEach((child) => child.draw(context));
+  protected onDraw(context: CanvasRenderingContext2D, renderState?: DrawRenderState) {
+    this.children.forEach((child) => {
+      if (!shouldRenderChild(child, renderState)) {
+        return;
+      }
+
+      child.draw(context, renderState);
+    });
   }
 
   override hitTest(point: Point) {
@@ -35,6 +41,12 @@ export class GroupDraw extends Draw {
 
   override findTarget(point: Point): Draw | null {
     if (!this.visible) {
+      return null;
+    }
+
+    const bounds = this.getBounds();
+
+    if (bounds && !containsPoint(bounds, point)) {
       return null;
     }
 
@@ -58,4 +70,37 @@ export class GroupDraw extends Draw {
 
     return null;
   }
+}
+
+function shouldRenderChild(child: Draw, renderState?: DrawRenderState) {
+  if (!renderState) {
+    return true;
+  }
+
+  const viewport = child.renderSpace === "screen" ? renderState.screenViewport : renderState.worldViewport;
+  const bounds = child.getBounds();
+
+  if (!viewport || !bounds) {
+    return true;
+  }
+
+  return intersectsRect(bounds, viewport);
+}
+
+function intersectsRect(left: Rect, right: Rect) {
+  return !(
+    left.x + left.width < right.x ||
+    right.x + right.width < left.x ||
+    left.y + left.height < right.y ||
+    right.y + right.height < left.y
+  );
+}
+
+function containsPoint(rect: Rect, point: Point) {
+  return (
+    point.x >= rect.x &&
+    point.x <= rect.x + rect.width &&
+    point.y >= rect.y &&
+    point.y <= rect.y + rect.height
+  );
 }

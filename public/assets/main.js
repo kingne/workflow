@@ -12,12 +12,12 @@ class Draw {
   constructor(renderSpace = "world") {
     this.renderSpace = renderSpace;
   }
-  draw(context) {
+  draw(context, renderState) {
     if (!this.visible) {
       return;
     }
     context.save();
-    this.onDraw(context);
+    this.onDraw(context, renderState);
     context.restore();
   }
   hitTest(_point) {
@@ -28,6 +28,9 @@ class Draw {
       return null;
     }
     return this.hitTest(point) ? this : null;
+  }
+  getBounds() {
+    return null;
   }
   setParent(parent) {
     this.parent = parent;
@@ -123,14 +126,23 @@ class GroupDraw extends Draw {
     child.setParent(this);
     this.children.push(child);
   }
-  onDraw(context) {
-    this.children.forEach((child) => child.draw(context));
+  onDraw(context, renderState) {
+    this.children.forEach((child) => {
+      if (!shouldRenderChild(child, renderState)) {
+        return;
+      }
+      child.draw(context, renderState);
+    });
   }
   hitTest(point) {
     return this.findTarget(point) !== null;
   }
   findTarget(point) {
     if (!this.visible) {
+      return null;
+    }
+    const bounds = this.getBounds();
+    if (bounds && !containsPoint(bounds, point)) {
       return null;
     }
     for (let index = this.children.length - 1;index >= 0; index -= 1) {
@@ -148,6 +160,23 @@ class GroupDraw extends Draw {
     }
     return null;
   }
+}
+function shouldRenderChild(child, renderState) {
+  if (!renderState) {
+    return true;
+  }
+  const viewport = child.renderSpace === "screen" ? renderState.screenViewport : renderState.worldViewport;
+  const bounds = child.getBounds();
+  if (!viewport || !bounds) {
+    return true;
+  }
+  return intersectsRect(bounds, viewport);
+}
+function intersectsRect(left, right) {
+  return !(left.x + left.width < right.x || right.x + right.width < left.x || left.y + left.height < right.y || right.y + right.height < left.y);
+}
+function containsPoint(rect, point) {
+  return point.x >= rect.x && point.x <= rect.x + rect.width && point.y >= rect.y && point.y <= rect.y + rect.height;
 }
 
 // src/draw/TextDraw.ts
@@ -1259,11 +1288,12 @@ class Mouse {
       this.connectionCandidateReason = null;
       return;
     }
+    const sameDirection = nearestPort.direction === this.connectionStartPort.direction;
     const edgeDraft = this.resolveEdgeDraft(this.connectionStartPort, nearestPort);
     if (!edgeDraft) {
       this.connectionCandidatePort = nearestPort;
       this.connectionCandidateState = "invalid";
-      this.connectionCandidateReason = nearestPort.direction === this.connectionStartPort.direction ? "Links must connect an output port to an input port" : "Nodes cannot connect to themselves";
+      this.connectionCandidateReason = sameDirection ? "Links must connect an output port to an input port" : "Nodes cannot connect to themselves";
       return;
     }
     const validation = this.scene.validateEdgeCandidate(edgeDraft);
@@ -1460,6 +1490,7 @@ class RenderManager {
     }
   }
   render() {
+    const renderState = this.createRenderState();
     this.context.setTransform(1, 0, 0, 1, 0, 0);
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     let currentSpace = null;
@@ -1472,7 +1503,7 @@ class RenderManager {
           this.context.setTransform(this.dpr * this.viewTransform.scale, 0, 0, this.dpr * this.viewTransform.scale, this.dpr * this.viewTransform.x, this.dpr * this.viewTransform.y);
         }
       }
-      draw.draw(this.context);
+      draw.draw(this.context, renderState);
     });
     if (this.animationResolver?.()) {
       this.scheduleNextFrame();
@@ -1486,6 +1517,35 @@ class RenderManager {
       this.frameId = null;
       this.render();
     });
+  }
+  createRenderState() {
+    const screenViewport = {
+      x: 0,
+      y: 0,
+      width: this.viewportSize.width,
+      height: this.viewportSize.height
+    };
+    if (this.viewportSize.width <= 0 || this.viewportSize.height <= 0) {
+      return {
+        screenViewport,
+        worldViewport: null
+      };
+    }
+    const topLeft = this.screenToWorld({ x: 0, y: 0 });
+    const bottomRight = this.screenToWorld({
+      x: this.viewportSize.width,
+      y: this.viewportSize.height
+    });
+    const padding = 160 / Math.max(this.viewTransform.scale, 0.001);
+    return {
+      screenViewport,
+      worldViewport: {
+        x: Math.min(topLeft.x, bottomRight.x) - padding,
+        y: Math.min(topLeft.y, bottomRight.y) - padding,
+        width: Math.abs(bottomRight.x - topLeft.x) + padding * 2,
+        height: Math.abs(bottomRight.y - topLeft.y) + padding * 2
+      }
+    };
   }
 }
 function clamp(value, min, max) {
@@ -1936,6 +1996,15 @@ class TableDraw extends GroupDraw {
     const rowHeight = this.options.rowHeight ?? 34;
     return titleHeight + this.options.rows.length * rowHeight + 18;
   }
+  getBounds() {
+    const { x, y, width } = this.options;
+    return {
+      x,
+      y,
+      width,
+      height: this.getHeight()
+    };
+  }
   getRowDraw(index) {
     return this.rowDraws[index] ?? null;
   }
@@ -2141,6 +2210,14 @@ class TableRowDraw extends GroupDraw {
   }
   hitTest(point) {
     return point.x >= this.options.x && point.x <= this.options.x + this.options.width && point.y >= this.options.y && point.y <= this.options.y + this.options.height;
+  }
+  getBounds() {
+    return {
+      x: this.options.x,
+      y: this.options.y,
+      width: this.options.width,
+      height: this.options.height
+    };
   }
   sync() {
     const { row, index, x, y, width, height, isLastRow } = this.options;

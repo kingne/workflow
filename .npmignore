@@ -1,0 +1,11 @@
+.github
+docs
+node_modules
+public
+scripts
+src
+*.log
+bun.lock
+server.ts
+tsconfig.json
+tsconfig.build.json

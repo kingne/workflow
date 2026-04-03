@@ -1,26 +1,47 @@
 {
-  "name": "workflow",
+  "name": "@kingne/workflow",
+  "version": "0.1.0",
+  "description": "Canvas-only workflow demo and embeddable workflow renderer powered by Bun.",
   "type": "module",
-  "private": true,
   "homepage": "https://kingne.github.io/workflow/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingne/workflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kingne/workflow/issues"
+  },
+  "keywords": [
+    "canvas",
+    "workflow",
+    "graph",
+    "node-editor",
+    "visualization",
+    "bun"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./src/index.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "README.md"
   ],
   "exports": {
     ".": {
-      "types": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
   },
   "scripts": {
     "build": "bun build ./src/main.ts ./src/benchmark.ts ./src/integration-example.ts --outdir ./public/assets --target browser",
-    "build:lib": "bun build ./src/index.ts --outdir ./dist --format esm --target browser",
+    "build:types": "tsc -p ./tsconfig.build.json",
+    "build:lib": "bun build ./src/index.ts --outdir ./dist --format esm --target browser && bun run build:types",
     "build:pages": "bun run build && bun run scripts/build-pages.ts",
+    "prepublishOnly": "bun run build:lib",
     "dev": "bun run build && bun run server.ts",
     "start": "bun run server.ts"
   },

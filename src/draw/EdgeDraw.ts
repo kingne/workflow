@@ -160,7 +160,7 @@ export class EdgeDraw extends GroupDraw {
     );
   }
 
-  getBounds(): Rect {
+  override getBounds(): Rect {
     if (this.pathPoints.length === 0) {
       return { x: 0, y: 0, width: 0, height: 0 };
     }

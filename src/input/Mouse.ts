@@ -711,15 +711,15 @@ export class Mouse {
       return;
     }
 
+    const sameDirection = nearestPort.direction === this.connectionStartPort.direction;
     const edgeDraft = this.resolveEdgeDraft(this.connectionStartPort, nearestPort);
 
     if (!edgeDraft) {
       this.connectionCandidatePort = nearestPort;
       this.connectionCandidateState = "invalid";
-      this.connectionCandidateReason =
-        nearestPort.direction === this.connectionStartPort.direction
-          ? "Links must connect an output port to an input port"
-          : "Nodes cannot connect to themselves";
+      this.connectionCandidateReason = sameDirection
+        ? "Links must connect an output port to an input port"
+        : "Nodes cannot connect to themselves";
       return;
     }
 
@@ -758,7 +758,7 @@ export class Mouse {
     this.renderManager.requestRender();
   }
 
-  private getNearestPortCandidate(startPort: ScenePortTarget) {
+  private getNearestPortCandidate(startPort: ScenePortTarget): ScenePortTarget | null {
     let bestTarget: ScenePortTarget | null = null;
     let bestDistance = CONNECTION_SNAP_DISTANCE;
 

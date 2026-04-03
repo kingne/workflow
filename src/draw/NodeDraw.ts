@@ -702,7 +702,7 @@ export class NodeDraw extends GroupDraw {
     );
   }
 
-  getBounds(): Rect {
+  override getBounds(): Rect {
     return {
       x: this.model.x,
       y: this.model.y,

@@ -4,7 +4,7 @@ import type { DrawMouseEvent } from "./Draw.ts";
 import { LineDraw } from "./LineDraw.ts";
 import { ShapeDraw } from "./ShapeDraw.ts";
 import { TextDraw } from "./TextDraw.ts";
-import type { Point } from "../types.ts";
+import type { Point, Rect } from "../types.ts";
 import type { WorkflowTableRow } from "../types.ts";
 
 type TableDrawOptions = {
@@ -56,6 +56,17 @@ export class TableDraw extends GroupDraw {
     const titleHeight = this.options.title ? 24 : 0;
     const rowHeight = this.options.rowHeight ?? 34;
     return titleHeight + this.options.rows.length * rowHeight + 18;
+  }
+
+  override getBounds(): Rect {
+    const { x, y, width } = this.options;
+
+    return {
+      x,
+      y,
+      width,
+      height: this.getHeight(),
+    };
   }
 
   getRowDraw(index: number) {
@@ -319,6 +330,15 @@ export class TableRowDraw extends GroupDraw {
       point.y >= this.options.y &&
       point.y <= this.options.y + this.options.height
     );
+  }
+
+  override getBounds(): Rect {
+    return {
+      x: this.options.x,
+      y: this.options.y,
+      width: this.options.width,
+      height: this.options.height,
+    };
   }
 
   private sync() {

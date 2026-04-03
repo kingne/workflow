@@ -4,14 +4,8 @@
 
 在线演示：
 
-- 主 demo: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
-- benchmark: [https://kingne.github.io/workflow/benchmark.html](https://kingne.github.io/workflow/benchmark.html)
-- 第三方接入示例: [https://kingne.github.io/workflow/integration.html](https://kingne.github.io/workflow/integration.html)
+- demo: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
 
-GitHub About 推荐填写：
-
-- Description: Canvas-only workflow demo and embeddable workflow renderer powered by Bun
-- Website: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
 
 ## 预览
 
@@ -62,67 +56,10 @@ bun run dev
 bun run build
 ```
 
-构建对外集成库：
-
-```bash
-bun run build:lib
-```
-
-库产物会输出到 `dist/index.js`。
-
-## GitHub Pages 演示
-
-这个项目现在已经补成可直接发布到 GitHub Pages 的静态站点方案。
-
-### 本地生成 Pages 产物
-
-```bash
-bun run build:pages
-```
-
-执行后会把可发布内容生成到 `docs/`：
-
-- `docs/index.html`
-- `docs/benchmark.html`
-- `docs/integration.html`
-- `docs/assets/*`
-- `docs/.nojekyll`
-
-### 直接用 GitHub Pages 发布
-
-仓库里已经带了官方 Actions workflow: `.github/workflows/deploy-pages.yml`。
-
-线上地址：
-
-- 主 demo: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
-- benchmark: [https://kingne.github.io/workflow/benchmark.html](https://kingne.github.io/workflow/benchmark.html)
-- 第三方接入示例: [https://kingne.github.io/workflow/integration.html](https://kingne.github.io/workflow/integration.html)
-
-推荐做法：
-
-1. 把仓库推到 GitHub 的 `main` 分支。
-2. 在仓库设置里打开 GitHub Pages，并选择 `GitHub Actions` 作为 Source。
-3. 后续每次 push 到 `main`，Actions 都会自动执行 `bun run build:pages` 并发布。
-
-### 备用方案
-
-如果你不想走 Actions，也可以直接使用 `docs/` 目录作为发布源：
-
-1. 本地执行 `bun run build:pages`
-2. 提交生成后的 `docs/`
-3. 在 GitHub Pages 设置里选择 `Deploy from a branch`
-4. 选择 `main` 分支下的 `/docs` 目录
-
-目前页面资源已经改成了相对路径，所以无论站点挂在 `https://<user>.github.io/<repo>/` 还是仓库根路径下都可以正常加载。
-
-## 第三方接入
-
-对外入口在 `src/index.ts`，核心类在 `src/WorkflowApp.ts`。
-
 ### 最小接入
 
 ```ts
-import { WorkflowApp, type WorkflowEdgeModel, type WorkflowNodeModel } from "workflow";
+import { WorkflowApp, type WorkflowEdgeModel, type WorkflowNodeModel } from "@kingne/workflow";
 
 const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 
@@ -266,10 +203,3 @@ app.focusNode("review", { scale: 1.15 });
   连线绘制与运行态效果
 - `src/draw/TableDraw.ts`
   表格绘制与行交互
-
-## 后续方向
-
-1. 外部数据源和 store 自动同步
-2. 平滑过渡版 `fitView / focusNode`
-3. 更完整的命令总线和编辑器协议
-4. 参数表单的真正编辑能力

@@ -1,5 +1,5 @@
 import type { Point, Rect, Size, ViewTransform } from "../types.ts";
-import type { Draw } from "../draw/Draw.ts";
+import type { Draw, DrawRenderState } from "../draw/Draw.ts";
 
 export class RenderManager {
   private draws: Draw[] = [];
@@ -175,6 +175,7 @@ export class RenderManager {
   }
 
   private render() {
+    const renderState = this.createRenderState();
     this.context.setTransform(1, 0, 0, 1, 0, 0);
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -198,7 +199,7 @@ export class RenderManager {
         }
       }
 
-      draw.draw(this.context);
+      draw.draw(this.context, renderState);
     });
 
     if (this.animationResolver?.()) {
@@ -215,6 +216,39 @@ export class RenderManager {
       this.frameId = null;
       this.render();
     });
+  }
+
+  private createRenderState(): DrawRenderState {
+    const screenViewport = {
+      x: 0,
+      y: 0,
+      width: this.viewportSize.width,
+      height: this.viewportSize.height,
+    };
+
+    if (this.viewportSize.width <= 0 || this.viewportSize.height <= 0) {
+      return {
+        screenViewport,
+        worldViewport: null,
+      };
+    }
+
+    const topLeft = this.screenToWorld({ x: 0, y: 0 });
+    const bottomRight = this.screenToWorld({
+      x: this.viewportSize.width,
+      y: this.viewportSize.height,
+    });
+    const padding = 160 / Math.max(this.viewTransform.scale, 0.001);
+
+    return {
+      screenViewport,
+      worldViewport: {
+        x: Math.min(topLeft.x, bottomRight.x) - padding,
+        y: Math.min(topLeft.y, bottomRight.y) - padding,
+        width: Math.abs(bottomRight.x - topLeft.x) + padding * 2,
+        height: Math.abs(bottomRight.y - topLeft.y) + padding * 2,
+      },
+    };
   }
 }
 
