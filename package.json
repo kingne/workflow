@@ -19,6 +19,7 @@
   "scripts": {
     "build": "bun build ./src/main.ts ./src/benchmark.ts ./src/integration-example.ts --outdir ./public/assets --target browser",
     "build:lib": "bun build ./src/index.ts --outdir ./dist --format esm --target browser",
+    "build:pages": "bun run build && bun run scripts/build-pages.ts",
     "dev": "bun run build && bun run server.ts",
     "start": "bun run server.ts"
   },
