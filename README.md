@@ -2,6 +2,17 @@
 
 一个完全基于 `canvas` 绘制的 workflow 引擎原型，使用 `bun` 管理构建与本地运行。项目既包含编辑器 demo，也提供了可供第三方应用直接集成的 `WorkflowApp` 入口。
 
+在线演示：
+
+- 主 demo: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
+- benchmark: [https://kingne.github.io/workflow/benchmark.html](https://kingne.github.io/workflow/benchmark.html)
+- 第三方接入示例: [https://kingne.github.io/workflow/integration.html](https://kingne.github.io/workflow/integration.html)
+
+GitHub About 推荐填写：
+
+- Description: Canvas-only workflow demo and embeddable workflow renderer powered by Bun
+- Website: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
+
 ## 预览
 
 ### 主界面
@@ -80,6 +91,12 @@ bun run build:pages
 ### 直接用 GitHub Pages 发布
 
 仓库里已经带了官方 Actions workflow: `.github/workflows/deploy-pages.yml`。
+
+线上地址：
+
+- 主 demo: [https://kingne.github.io/workflow/](https://kingne.github.io/workflow/)
+- benchmark: [https://kingne.github.io/workflow/benchmark.html](https://kingne.github.io/workflow/benchmark.html)
+- 第三方接入示例: [https://kingne.github.io/workflow/integration.html](https://kingne.github.io/workflow/integration.html)
 
 推荐做法：
 

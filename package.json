@@ -2,6 +2,7 @@
   "name": "workflow",
   "type": "module",
   "private": true,
+  "homepage": "https://kingne.github.io/workflow/",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./src/index.ts",

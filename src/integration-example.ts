@@ -53,7 +53,7 @@ function createNodes(): WorkflowNodeModel[] {
       title: "Response Reviewer",
       logoText: "RV",
       actionLabel: "Run",
-      x: 620,
+      x: 700,
       y: 240,
       width: 440,
       height: 320,

@@ -64,7 +64,7 @@ const nodes: WorkflowNodeModel[] = [
     title: "Response Reviewer",
     logoText: "RV",
     actionLabel: "Run",
-    x: 560,
+    x: 660,
     y: 240,
     width: 460,
     height: 320,
