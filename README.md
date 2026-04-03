@@ -56,12 +56,16 @@ bun run dev
 bun run build
 ```
 
-### 最小接入
+### React 最小接入
 
-```ts
-import { WorkflowApp, type WorkflowEdgeModel, type WorkflowNodeModel } from "@kingne/workflow";
-
-const canvas = document.querySelector("canvas") as HTMLCanvasElement;
+```tsx
+import { useEffect, useRef } from "react";
+import "./index.css";
+import {
+  WorkflowApp,
+  type WorkflowEdgeModel,
+  type WorkflowNodeModel,
+} from "@kingne/workflow";
 
 const nodes: WorkflowNodeModel[] = [
   {
@@ -85,8 +89,30 @@ const nodes: WorkflowNodeModel[] = [
 
 const edges: WorkflowEdgeModel[] = [];
 
-const app = new WorkflowApp({ canvas, nodes, edges });
-app.start();
+export function App() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const appRef = useRef<WorkflowApp | null>(null);
+
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    appRef.current = new WorkflowApp({
+      canvas: canvasRef.current,
+      nodes,
+      edges,
+    });
+
+    appRef.current.start();
+
+    return () => {
+      appRef.current?.destory();
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} id="canvas" className="w-full h-screen" />;
+}
+
+export default App;
 ```
 
 ### 生命周期
